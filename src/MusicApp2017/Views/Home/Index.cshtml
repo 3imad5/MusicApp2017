@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <div class="row header">
+        <h1>- Welcome to the Music App -</h1>
+    </div>
+    <div class="row content">
+        <a asp-action="Index" asp-controller="Albums">
+            <div class="col-md-4 button">Albums</div>
+        </a>
+        <a asp-action="Index" asp-controller="Artists">
+            <div class="col-md-4 button">Artists</div>
+        </a>
+        <a asp-action="Index" asp-controller="Genres">
+            <div class="col-md-4 button">Genres</div>
+        </a>
+    </div>
+</div>

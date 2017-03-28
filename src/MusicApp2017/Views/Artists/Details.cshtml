@@ -1,0 +1,46 @@
+﻿
+@model MusicApp2017.Models.Artist
+@{
+    ViewData["Title"] = "Artists";
+}
+    <h2>Artist Details</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+        <dd>
+            @Model.Name
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bio):
+        </dt>
+        <dd>
+            @Model.Bio
+        </dd>
+    </dl>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Albums List</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var album in Model.Albums)
+            {
+                <tr>
+                    <td  class="album-block">
+                        @Html.DisplayFor(modelItem => album.Title)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ArtistID" class="btn-task">Edit</a> |
+    <a asp-action="Index" class="btn-task">Back to List</a>
+</div>
