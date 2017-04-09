@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - MusicApp2017</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="~/css/site.css" />
         
     </environment>
@@ -16,7 +16,116 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <style>
+        
+            h1 {
+                font-size: 4vw;
+            }
+
+                h1::selection {
+                    color: white;
+                }
+
+            .container {
+                width: 95%;
+                margin: auto;
+            }
+
+            .header {
+                background-color: black;
+                color: #1E88E5;
+                padding: 35px;
+                font-size: 38px;
+                text-align: center;
+                font-family: 'Righteous', cursive;
+                cursor: default;
+            }
+
+            .content {
+                background-color: black;
+            }
+
+            .button {
+                text-align: center;
+                font-size: 28px;
+                background-color: #1E88E5;
+                margin: auto;
+                padding: 15px;
+                border-radius: 0px;
+                color: white;
+                font-family: 'Righteous', cursive;
+                border: solid 2px #1E88E5;
+                -webkit-transition: 0.3s all ease-out;
+                transition: 0.3s all ease-out;
+                text-decoration: none;
+            }
+
+                .button:hover {
+                    -webkit-transform: translateY(5px);
+                    transform: translateY(5px);
+                    background-color: white !important;
+                    color: #1E88E5;
+                    box-shadow: inset 0px 0px 0px 40px white;
+                }
+
+            .btn-main {
+                background-color: black;
+                padding: 8px;
+                color: white;
+                border: solid 2px black;
+                text-decoration: none;
+                font-weight: 600;
+                border-radius: 5px;
+                float: right;
+                -webkit-transition: 0.3s all ease-out;
+                transition: 0.3s all ease-out;
+                margin: 10px;
+            }
+
+                .btn-main:hover {
+                    background-color: white;
+                    color: black;
+                    text-decoration: none;
+                    -webkit-transform: scale(1.03);
+                    transform: scale(1.03);
+                }
+
+            .btn-task {
+                background-color: black;
+                padding: 4px 10px;
+                color: white;
+                border: solid 2px black;
+                text-decoration: none;
+                border-radius: 3px;
+                -webkit-transition: 0.3s all ease-out;
+                transition: 0.3s all ease-out;
+            }
+
+                .btn-task:hover {
+                    background-color: #1E88E5;
+                    color: white;
+                    text-decoration: none;
+                }
+
+            .list {
+                background-color: #003866;
+                padding: 17px;
+                color: white;
+                border-collapse: inherit;
+                border-radius: 5px;
+                box-shadow: #444444 0px 6px 15px -3px;
+            }
+
+                .list a {
+                    color: white;
+                    text-decoration: underline;
+                }
+
+            .album-block {
+                background-color: #ededed;
+            }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -35,6 +144,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @await Html.PartialAsync("_LoginPartial")
                 </ul>
             </div>
         </div>
