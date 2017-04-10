@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MusicApp2017.Models
 {
-    public class MusicDbContext : DbContext
+    public class MusicDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public MusicDbContext(DbContextOptions<MusicDbContext> options)
