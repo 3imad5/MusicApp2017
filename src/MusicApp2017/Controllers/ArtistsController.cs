@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MusicApp2017.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MusicApp2017.Controllers
 {
@@ -24,11 +25,13 @@ namespace MusicApp2017.Controllers
 
             return View(artists);
         }
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Artist a)
         {
             if (ModelState.IsValid)
@@ -61,7 +64,7 @@ namespace MusicApp2017.Controllers
             //ViewBag.AlbumsList = new SelectList(_context.Albums, "Title", "ArtistID");
             return View(artist);
         }
-
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,7 +79,7 @@ namespace MusicApp2017.Controllers
             }
             return View(artist);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ArtistID, Name, Bio")] Artist artist)

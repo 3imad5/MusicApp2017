@@ -19,7 +19,7 @@ namespace MusicApp2017.Controllers
 
             return View();
         }
-
+        
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

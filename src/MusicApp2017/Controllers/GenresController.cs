@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MusicApp2017.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MusicApp2017.Controllers
 {
@@ -23,11 +24,13 @@ namespace MusicApp2017.Controllers
             var genres = _context.Genres.ToList();
             return View(genres);
         }
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Genre g)
         {
             if (ModelState.IsValid)
@@ -44,12 +47,14 @@ namespace MusicApp2017.Controllers
                 return Create();
             }
         }
+        
         public ActionResult Details(int? id)
         {
             var genres = _context.Genres.Include("Albums").Single(g => g.GenreID == id);
 
             return View(genres);
         }
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -64,7 +69,7 @@ namespace MusicApp2017.Controllers
             }
             return View(genre);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("GenreID, Name, Albums")] Genre genre)
