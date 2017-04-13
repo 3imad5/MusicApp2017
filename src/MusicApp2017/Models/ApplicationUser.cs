@@ -11,7 +11,7 @@ namespace MusicApp2017.Models
     public class ApplicationUser : IdentityUser
     {
         // Define custom properties here
-        public virtual Genre FavoriteGenre { get; set; }
+        public virtual int FavoriteGenre { get; set; }
     }
 
 }

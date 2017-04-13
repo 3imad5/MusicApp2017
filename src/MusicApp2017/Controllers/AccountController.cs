@@ -99,8 +99,8 @@ namespace MusicApp2017.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var genre = model.FavoriteGenre;
-                ViewData["FavoriteGenre"] = new SelectList(_context.Genres, "GenreID", "Name", genre);
+                
+                ViewData["FavoriteGenre"] = new SelectList(_context.Genres, "GenreID", "Name", model.FavoriteGenre);
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FavoriteGenre = model.FavoriteGenre };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

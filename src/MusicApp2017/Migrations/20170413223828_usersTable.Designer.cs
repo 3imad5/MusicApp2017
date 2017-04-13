@@ -8,8 +8,8 @@ using MusicApp2017.Models;
 namespace MusicApp2017.Migrations
 {
     [DbContext(typeof(MusicDbContext))]
-    [Migration("20170410231056_initCreate")]
-    partial class initCreate
+    [Migration("20170413223828_usersTable")]
+    partial class usersTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -160,7 +160,7 @@ namespace MusicApp2017.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<int?>("FavoriteGenreGenreID");
+                    b.Property<int>("FavoriteGenre");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -186,8 +186,6 @@ namespace MusicApp2017.Migrations
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FavoriteGenreGenreID");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -276,13 +274,6 @@ namespace MusicApp2017.Migrations
                         .WithMany("Albums")
                         .HasForeignKey("GenreID")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MusicApp2017.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("MusicApp2017.Models.Genre", "FavoriteGenre")
-                        .WithMany()
-                        .HasForeignKey("FavoriteGenreGenreID");
                 });
         }
     }
