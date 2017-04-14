@@ -7,6 +7,7 @@ using MusicApp2017.Models;
 using MusicApp2017.Models.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace MusicApp2017.Controllers
 {
@@ -100,7 +101,6 @@ namespace MusicApp2017.Controllers
             if (ModelState.IsValid)
             {
                 
-                ViewData["FavoriteGenre"] = new SelectList(_context.Genres, "GenreID", "Name", model.FavoriteGenre);
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FavoriteGenre = model.FavoriteGenre };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -119,6 +119,44 @@ namespace MusicApp2017.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public async Task<IActionResult> Manage()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            var favGenreID = user.FavoriteGenre;
+            ViewBag.FavGenre = _context.Genres.Find(favGenreID).Name.ToString();
+
+
+            return View(user);
+        }
+        // GET: /Account/Edit
+        [HttpGet]
+        [Authorize]
+        public IActionResult Edit(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            ViewData["FavoriteGenre"] = new SelectList(_context.Genres, "GenreID", "Name");
+            return View();
+        }
+        // POST: /Account/Edit
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit(EditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                user.FavoriteGenre = model.SelectedFavortieGenre;
+                var succeeded = await _userManager.UpdateAsync(user);
+
+                return RedirectToAction("Manage");
+            }
+            return View();
         }
 
         // POST: /Account/Logout

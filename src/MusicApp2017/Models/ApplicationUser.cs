@@ -11,6 +11,8 @@ namespace MusicApp2017.Models
     public class ApplicationUser : IdentityUser
     {
         // Define custom properties here
+        [Display(Name = "Favorite Genre")]
+        [ForeignKey("GenreID")]
         public virtual int FavoriteGenre { get; set; }
     }
 

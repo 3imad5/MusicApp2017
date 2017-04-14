@@ -16,7 +16,8 @@ namespace MusicApp2017.Controllers
 
         public AlbumsController(MusicDbContext context)
         {
-            _context = context;    
+            _context = context;
+
         }
 
         // GET: Albums

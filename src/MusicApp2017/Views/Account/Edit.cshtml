@@ -1,0 +1,23 @@
+﻿@model MusicApp2017.Models.AccountViewModels.EditViewModel
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form asp-action="Edit">
+    <div>
+        <hr />
+        <div class="form-group">
+            <label class="col-md-2">Favorite Genre: </label>
+            <div class="col-md-2">
+                <select asp-for="SelectedFavortieGenre" class="form-control" asp-items="ViewBag.FavoriteGenre"></select>
+            </div>
+        </div>
+        <input type="submit" value="Save" class="btn-task" />
+        <hr>
+    </div>
+</form>
+
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }

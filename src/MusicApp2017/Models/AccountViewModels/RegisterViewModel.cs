@@ -26,6 +26,7 @@ namespace MusicApp2017.Models.AccountViewModels
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Favorite Genre")]
+        [ForeignKey("GenreID")]
         public int FavoriteGenre { get; set; }
     }
 }

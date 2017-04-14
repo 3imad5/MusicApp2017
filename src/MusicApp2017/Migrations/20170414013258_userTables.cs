@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MusicApp2017.Migrations
 {
-    public partial class usersTable : Migration
+    public partial class userTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,6 +62,7 @@ namespace MusicApp2017.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
+
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -149,6 +150,7 @@ namespace MusicApp2017.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
@@ -204,13 +206,11 @@ namespace MusicApp2017.Migrations
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
 
-
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
         }
     }
 }
