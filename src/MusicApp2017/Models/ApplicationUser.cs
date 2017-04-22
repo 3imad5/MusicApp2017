@@ -14,6 +14,8 @@ namespace MusicApp2017.Models
         [Display(Name = "Favorite Genre")]
         [ForeignKey("GenreID")]
         public virtual int FavoriteGenre { get; set; }
+        [ForeignKey("UserID")]
+        public virtual List<Rating> Ratings { get; set; }
     }
 
 }

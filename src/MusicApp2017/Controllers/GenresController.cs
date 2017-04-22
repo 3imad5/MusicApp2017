@@ -54,7 +54,7 @@ namespace MusicApp2017.Controllers
 
             return View(genres);
         }
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -69,7 +69,7 @@ namespace MusicApp2017.Controllers
             }
             return View(genre);
         }
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("GenreID, Name, Albums")] Genre genre)

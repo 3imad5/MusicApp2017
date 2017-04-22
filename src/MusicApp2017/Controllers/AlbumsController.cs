@@ -94,7 +94,7 @@ namespace MusicApp2017.Controllers
             ViewData["GenreID"] = new SelectList(_context.Genres, "GenreID", "Name", album.GenreID);
             return View(album);
         }
-
+        
         // POST: Albums/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
