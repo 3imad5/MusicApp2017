@@ -129,9 +129,9 @@ namespace MusicApp2017.Controllers
                 return NotFound();
             }
             var favGenreID = user.FavoriteGenre;
+            var userID = _userManager.GetUserId(User);
             ViewBag.FavGenre = _context.Genres.Find(favGenreID).Name.ToString();
-
-
+            //ViewBag.Ratings = _context.Rating.SingleAsync(i => i.UserID == userID);
             return View(user);
         }
         // GET: /Account/Edit

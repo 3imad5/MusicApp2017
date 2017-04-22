@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MusicApp2017.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace MusicApp2017.Controllers
 {
     public class AlbumsController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly MusicDbContext _context;
 
-        public AlbumsController(MusicDbContext context)
+        public AlbumsController(MusicDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
 
         }
 
@@ -27,17 +30,18 @@ namespace MusicApp2017.Controllers
             return View(await musicDbContext.ToListAsync());
         }
 
-        // GET: Albums/Details/5
+        // GET: Albums/Details/
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var albumContext =  _context.Albums
+            ViewBag.albumID = id;
+            var albumContext = _context.Albums
                 .Include(a => a.Artist)
-                .Include(a => a.Genre);
+                .Include(a => a.Genre)
+                .Include("Ratings");
             var album = await albumContext
                 .SingleOrDefaultAsync(m => m.AlbumID == id);
             if (album == null)
@@ -46,6 +50,24 @@ namespace MusicApp2017.Controllers
             }
 
             return View(album);
+        }
+        // POST: Albums/Rate
+        public IActionResult Rate(Rating model)
+        {
+            if (ModelState.IsValid)
+            {
+                Rating rating = new Rating();
+                rating.AlbumID = model.AlbumID;
+                rating.RatingValue = model.RatingValue;
+                if (!(_userManager.GetUserId(User) == null))
+                {
+                    rating.UserID = _userManager.GetUserId(User);
+                }
+                _context.Rating.Add(rating);
+                _context.SaveChanges();
+                return RedirectToAction("Details", new { id = model.AlbumID });
+            }
+            return View();
         }
 
         // GET: Albums/Create

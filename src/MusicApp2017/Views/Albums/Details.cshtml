@@ -27,7 +27,46 @@
         <dd>
             @Model.Genre.Name
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ratings)
+        </dt>
+        <dd>
+            @{
+                int numOfRatings = 0;
+                double avgRating = 0;
+                double ratings = 0;
+                foreach (var rating in Model.Ratings)
+                {
+
+                    ratings += rating.RatingValue;
+                    numOfRatings++;
+
+                }
+                avgRating = Math.Round((ratings / numOfRatings), 1);
+                @Html.DisplayFor(x => avgRating);
+            }
+            (@Html.DisplayFor(x => numOfRatings) reviews)
+            
+        </dd>
     </dl>
+    <div class="well">
+        <form class="form-inline" asp-action="Rate">
+            <input type="hidden" name="AlbumID" value="@ViewBag.albumID"/>
+            <div class="form-group">
+                <label for="RatingValue" class="control-label">Rate this album</label>
+                <select name="RatingValue" class="form-control input-sm">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <div class="form-group">
+                    <input type="submit" value="Rate" class="btn btn-info btn-xs">
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.AlbumID" class="btn-task">Edit</a> |

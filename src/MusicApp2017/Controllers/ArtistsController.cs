@@ -60,8 +60,6 @@ namespace MusicApp2017.Controllers
             {
                 return NotFound();
             }
-            //ViewBag.AlbumsList = _context.Albums.First(m => m.ArtistID == id);
-            //ViewBag.AlbumsList = new SelectList(_context.Albums, "Title", "ArtistID");
             return View(artist);
         }
         [Authorize(Roles = "Administrator")]

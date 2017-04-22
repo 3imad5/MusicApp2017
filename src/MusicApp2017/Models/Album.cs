@@ -22,6 +22,7 @@ namespace MusicApp2017.Models
         public int GenreID { get; set; }
         // Navigation property
         public Genre Genre { get; set; }
+        [Display(Name = "Rating")]
         public List<Rating> Ratings { get; set; }
     }
 }
