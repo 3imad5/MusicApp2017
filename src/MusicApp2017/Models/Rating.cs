@@ -11,6 +11,8 @@ namespace MusicApp2017.Models
         public int RatingID { get; set; }
         public int AlbumID { get; set; }
         public double RatingValue { get; set; }
+
         public string UserID { get; set; }
+
     }
 }
