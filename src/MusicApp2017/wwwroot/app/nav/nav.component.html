@@ -7,18 +7,18 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand'>Music App 2017</a>
+            <a class='navbar-brand' [routerLink]="['/index']">Music App 2017</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
-                <li>
-                    <a>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/index']">
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>
-                <li>
-                    <a>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/albumlist']">
                         <span class='glyphicon glyphicon-music'></span> Albums
                     </a>
                 </li>

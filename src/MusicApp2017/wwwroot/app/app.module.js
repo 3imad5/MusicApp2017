@@ -7,8 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
+var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var nav_component_1 = require("./nav/nav.component");
+var albumlist_component_1 = require("./albums/albumlist.component");
+var home_component_1 = require("./home/home.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -16,10 +21,18 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule, forms_1.FormsModule, router_1.RouterModule.forRoot([
+                { path: '', redirectTo: 'index', pathMatch: 'full' },
+                { path: 'albumlist', component: albumlist_component_1.AlbumListComponent },
+                { path: 'albumlist/:id', component: albumlist_component_1.AlbumListComponent },
+                { path: 'index', component: home_component_1.HomeComponent },
+                { path: '**', redirectTo: 'index' }
+            ])],
         declarations: [
             app_component_1.AppComponent,
-            nav_component_1.NavComponent
+            nav_component_1.NavComponent,
+            albumlist_component_1.AlbumListComponent,
+            home_component_1.HomeComponent
         ],
         bootstrap: [app_component_1.AppComponent],
     })

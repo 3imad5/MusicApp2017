@@ -1,0 +1,23 @@
+﻿<h1>Album Details</h1>
+<p *ngIf="!albums"><em>Loading albums...</em></p>
+<table class='table' *ngIf="albums">
+    <thead>
+        <tr>
+            <th>Album ID</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Ratings</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let album of albums">
+            <td>{{album.albumID}}</td>
+            <td [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/albumlist', album.albumID]">{{ album.title }} </a>
+            </td>
+            <td>{{album.artistID}}</td>
+            <td>{{album.genreID}}</td>
+        </tr>
+    </tbody>
+</table>
