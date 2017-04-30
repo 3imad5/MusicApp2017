@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MusicApp2017.Models
 {
@@ -11,7 +12,7 @@ namespace MusicApp2017.Models
         public string Name { get; set; }
 
         public string Bio { get; set; }
-
-        public List<Album> Albums { get; set; }
+        [NotMapped]
+        public virtual List<Album> Albums { get; set; }
     }
 }

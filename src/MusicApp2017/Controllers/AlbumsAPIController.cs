@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicApp2017.Models;
+using Newtonsoft.Json;
 
 namespace MusicApp2017.Controllers
 {
+
     [Produces("application/json")]
     [Route("api/AlbumsAPI")]
     public class AlbumsAPIController : Controller
@@ -22,9 +24,9 @@ namespace MusicApp2017.Controllers
 
         // GET: api/AlbumsAPI
         [HttpGet]
-        public IEnumerable<Album> GetAlbums()
+        public IQueryable<Album> GetAlbums()
         {
-            return _context.Albums;
+            return _context.Albums.Include(a => a.Artist).Include(a => a.Genre);
         }
 
         // GET: api/AlbumsAPI/5
