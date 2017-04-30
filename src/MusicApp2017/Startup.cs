@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
@@ -66,6 +67,7 @@ namespace MusicApp2017
             }
 
             app.UseIdentity();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -73,6 +75,12 @@ namespace MusicApp2017
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.Run(async context =>
+            {
+                context.Response.StatusCode = 200;
+                context.Response.ContentType = "text/html";
+                await context.Response.SendFileAsync("./wwwroot/index.html");
             });
         }
     }
