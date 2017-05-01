@@ -1,2 +1,43 @@
-<h1>Hello!</h1>
-<p>Welcome to Music App 2017</p>
+<style>
+    .panel-info > .panel-heading {
+        background-color: #ffc107;
+        color: white;
+    }
+    .panel-success > .panel-heading {
+        background-color: #4caf50;
+        color: white;
+    }
+    .panel-success:hover, .panel-info:hover, .panel-primary:hover{
+        cursor: pointer;
+    }
+    .panel-heading:hover{
+        font-weight: 600;
+    }
+</style>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div style="text-align:center">
+            <h1>Music App 2017</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 panel-primary" style="text-align:center" [routerLinkActive]="['link-active']" [routerLink]="['/albumlist']">
+            <div class="panel-heading">
+                <span class='glyphicon glyphicon-folder-open'></span>
+                <div class="panel-title">Albums</div>
+            </div>
+        </div>
+        <div class="col-md-4 panel-success" style="text-align:center" [routerLinkActive]="['link-active']" [routerLink]="['/artistlist']">
+            <div class="panel-heading">
+                <span class='glyphicon glyphicon-user'></span>
+                <div class="panel-title">Artists</div>
+            </div>
+        </div>
+        <div class="col-md-4 panel-info" style="text-align:center" [routerLinkActive]="['link-active']" [routerLink]="['/genrelist']">
+            <div class="panel-heading">
+                <span class='glyphicon glyphicon-music'></span>
+                <div class="panel-title">Genres</div>
+            </div>
+        </div>
+    </div>
+</div>
