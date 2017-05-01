@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var HomeComponent = (function () {
     function HomeComponent() {
-        this.name = "Angular 4";
     }
     return HomeComponent;
 }());

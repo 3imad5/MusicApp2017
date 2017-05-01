@@ -9,32 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var Observable_1 = require("rxjs/Observable");
 var http_1 = require("@angular/http");
 require("rxjs/Rx");
-var AlbumListComponent = (function () {
-    function AlbumListComponent(http) {
+var Observable_1 = require("rxjs/Observable");
+var GenreListComponent = (function () {
+    function GenreListComponent(http) {
         var _this = this;
-        http.get('/api/albumsapi').subscribe(function (result) {
-            _this.albums = result.json();
+        http.get('/api/genresapi').subscribe(function (result) {
+            _this.genres = result.json();
         });
     }
-    AlbumListComponent.prototype.ngOnInit = function () {
+    GenreListComponent.prototype.ngOnInit = function () {
         var eventObservable = Observable_1.Observable.fromEvent(this.input.nativeElement, 'keyup');
         eventObservable.subscribe();
     };
-    return AlbumListComponent;
+    return GenreListComponent;
 }());
 __decorate([
     core_1.ViewChild('input'),
     __metadata("design:type", core_1.ElementRef)
-], AlbumListComponent.prototype, "input", void 0);
-AlbumListComponent = __decorate([
+], GenreListComponent.prototype, "input", void 0);
+GenreListComponent = __decorate([
     core_1.Component({
-        selector: 'albumslist',
-        templateUrl: './albumlist.component.html',
+        selector: 'genrelist',
+        templateUrl: './genrelist.component.html',
     }),
     __metadata("design:paramtypes", [http_1.Http])
-], AlbumListComponent);
-exports.AlbumListComponent = AlbumListComponent;
-//# sourceMappingURL=albumlist.component.js.map
+], GenreListComponent);
+exports.GenreListComponent = GenreListComponent;
+//# sourceMappingURL=genrelist.component.js.map

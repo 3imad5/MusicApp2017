@@ -13,9 +13,13 @@ var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var nav_component_1 = require("./nav/nav.component");
 var albumlist_component_1 = require("./albums/albumlist.component");
+var artistlist_component_1 = require("./artists/artistlist.component");
+var genrelist_component_1 = require("./genres/genrelist.component");
+var artist_component_1 = require("./artists/artist.component");
 var home_component_1 = require("./home/home.component");
 var album_component_1 = require("./albums/album.component");
 var addalbum_component_1 = require("./albums/addalbum.component");
+var searchpipe_1 = require("./searchpipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,6 +32,9 @@ AppModule = __decorate([
                 { path: 'albumlist', component: albumlist_component_1.AlbumListComponent },
                 { path: 'albumlist/:id', component: album_component_1.AlbumComponent },
                 { path: 'addalbum', component: addalbum_component_1.AddAlbumComponent },
+                { path: 'artistlist', component: artistlist_component_1.ArtistListComponent },
+                { path: 'artistlist/:id', component: artist_component_1.ArtistComponent },
+                { path: 'genrelist', component: genrelist_component_1.GenreListComponent },
                 { path: 'index', component: home_component_1.HomeComponent },
                 { path: '**', redirectTo: 'index' }
             ])],
@@ -37,8 +44,13 @@ AppModule = __decorate([
             albumlist_component_1.AlbumListComponent,
             album_component_1.AlbumComponent,
             addalbum_component_1.AddAlbumComponent,
+            artistlist_component_1.ArtistListComponent,
+            artist_component_1.ArtistComponent,
+            genrelist_component_1.GenreListComponent,
             home_component_1.HomeComponent,
-            albumlist_component_1.SearchPipe
+            searchpipe_1.SearchPipeAlbum,
+            searchpipe_1.SearchPipeArtist,
+            searchpipe_1.SearchPipeGenre
         ],
         bootstrap: [app_component_1.AppComponent],
     })

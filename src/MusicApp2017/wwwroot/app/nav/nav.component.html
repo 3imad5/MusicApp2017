@@ -19,7 +19,17 @@
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/albumlist']">
-                        <span class='glyphicon glyphicon-music'></span> Albums
+                        <span class='glyphicon glyphicon-folder-open'></span> Albums
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/artistlist']">
+                        <span class='glyphicon glyphicon-user'></span> Artists
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/genrelist']">
+                        <span class='glyphicon glyphicon-music'></span> Genres
                     </a>
                 </li>
             </ul>

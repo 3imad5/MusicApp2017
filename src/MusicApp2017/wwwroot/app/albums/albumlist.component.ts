@@ -6,12 +6,6 @@ import 'rxjs/Rx';
 @Component({
     selector: 'albumslist',
     templateUrl: './albumlist.component.html',
-    styles: [`
-    #search{
-        
-    }
-
-  `],
 })
 export class AlbumListComponent {
     @ViewChild('input')
@@ -39,16 +33,4 @@ interface Album {
     genre: string;
 
     ratings: string;
-}
-@Pipe({
-    name: 'searchPipe',
-    pure: false
-})
-export class SearchPipe implements PipeTransform {
-    transform(albums: any[], searchTerm: string): any[] {
-        searchTerm = searchTerm.toUpperCase();
-        return albums.filter(album => {
-            return (album.title.toUpperCase().indexOf(searchTerm) !== -1 || album.artist.name.toUpperCase().indexOf(searchTerm) !== -1 || album.genre.name.toUpperCase().indexOf(searchTerm) !== -1)
-        });
-    }
 }

@@ -1,0 +1,24 @@
+﻿<h1>Artist List</h1>
+<p *ngIf="!artists"><em>Loading artists...</em></p>
+<div class="form-group has-feedback">
+    <label class="control-label">Search:</label>
+    <input #input placeholder="Start typing..." id="search" class="form-control">
+    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+
+</div>
+<table class='table' *ngIf="artists">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let artist of artists | searchPipeArtist: input.value">
+            <td [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/artistlist', artist.artistID]">{{ artist.name }} </a>
+            </td>
+            <td>{{artist.bio}}</td>
+        </tr>
+    </tbody>
+</table>

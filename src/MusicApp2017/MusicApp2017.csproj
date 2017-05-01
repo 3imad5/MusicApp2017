@@ -17,6 +17,13 @@
     <Content Include="wwwroot\app\app.component.html" />
     <Content Include="wwwroot\app\app.component.ts" />
     <Content Include="wwwroot\app\app.module.ts" />
+    <Content Include="wwwroot\app\artists\artist.component.html" />
+    <Content Include="wwwroot\app\artists\artist.component.ts" />
+    <Content Include="wwwroot\app\artists\artistlist.component.html" />
+    <Content Include="wwwroot\app\artists\artistlist.component.ts" />
+    <Content Include="wwwroot\app\genres\genre.component.ts" />
+    <Content Include="wwwroot\app\genres\genrelist.component.html" />
+    <Content Include="wwwroot\app\genres\genrelist.component.ts" />
     <Content Include="wwwroot\app\home\home.component.html" />
     <Content Include="wwwroot\app\home\home.component.js" />
     <Content Include="wwwroot\app\home\home.component.js.map" />
@@ -26,6 +33,7 @@
     <Content Include="wwwroot\app\nav\nav.component.js" />
     <Content Include="wwwroot\app\nav\nav.component.js.map" />
     <Content Include="wwwroot\app\nav\nav.component.ts" />
+    <Content Include="wwwroot\app\searchpipe.ts" />
     <Content Include="wwwroot\favicon.ico" />
     <Content Include="wwwroot\index.html" />
     <Content Include="wwwroot\main.ts" />

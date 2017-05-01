@@ -9,32 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var Observable_1 = require("rxjs/Observable");
 var http_1 = require("@angular/http");
-require("rxjs/Rx");
-var AlbumListComponent = (function () {
-    function AlbumListComponent(http) {
+var router_1 = require("@angular/router");
+var ArtistComponent = (function () {
+    function ArtistComponent(http, route) {
         var _this = this;
-        http.get('/api/albumsapi').subscribe(function (result) {
-            _this.albums = result.json();
+        var id = route.snapshot.params['id'];
+        http.get('/api/artistsapi/' + id).subscribe(function (result) {
+            _this.artist = result.json();
         });
     }
-    AlbumListComponent.prototype.ngOnInit = function () {
-        var eventObservable = Observable_1.Observable.fromEvent(this.input.nativeElement, 'keyup');
-        eventObservable.subscribe();
-    };
-    return AlbumListComponent;
+    return ArtistComponent;
 }());
-__decorate([
-    core_1.ViewChild('input'),
-    __metadata("design:type", core_1.ElementRef)
-], AlbumListComponent.prototype, "input", void 0);
-AlbumListComponent = __decorate([
+ArtistComponent = __decorate([
     core_1.Component({
-        selector: 'albumslist',
-        templateUrl: './albumlist.component.html',
+        selector: 'artist',
+        templateUrl: './artist.component.html'
     }),
-    __metadata("design:paramtypes", [http_1.Http])
-], AlbumListComponent);
-exports.AlbumListComponent = AlbumListComponent;
-//# sourceMappingURL=albumlist.component.js.map
+    __metadata("design:paramtypes", [http_1.Http, router_1.ActivatedRoute])
+], ArtistComponent);
+exports.ArtistComponent = ArtistComponent;
+//# sourceMappingURL=artist.component.js.map

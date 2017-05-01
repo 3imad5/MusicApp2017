@@ -16,14 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <!--<tr *ngFor="let album of albums">
-            <td [routerLinkActive]="['link-active']">
-                <a [routerLink]="['/albumlist', album.albumID]">{{ album.title }} </a>
-            </td>
-            <td>{{album.artist.name}}</td>
-            <td>{{album.genre.name}}</td>
-        </tr>-->
-        <tr *ngFor="let album of albums | searchPipe: input.value">
+        <tr *ngFor="let album of albums | searchPipeAlbum: input.value">
             <td [routerLinkActive]="['link-active']">
                 <a [routerLink]="['/albumlist', album.albumID]">{{ album.title }} </a>
             </td>
