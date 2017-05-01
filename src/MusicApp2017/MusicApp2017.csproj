@@ -8,6 +8,10 @@
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="wwwroot\app\albums\addalbum.component.html" />
+    <Content Include="wwwroot\app\albums\addalbum.component.ts" />
+    <Content Include="wwwroot\app\albums\album.component.html" />
+    <Content Include="wwwroot\app\albums\album.component.ts" />
     <Content Include="wwwroot\app\albums\albumlist.component.html" />
     <Content Include="wwwroot\app\albums\albumlist.component.ts" />
     <Content Include="wwwroot\app\app.component.html" />

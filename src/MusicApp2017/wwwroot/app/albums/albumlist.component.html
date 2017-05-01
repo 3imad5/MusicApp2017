@@ -1,5 +1,12 @@
-﻿<h1>Album Details</h1>
+﻿<h1>Album List</h1>
 <p *ngIf="!albums"><em>Loading albums...</em></p>
+<div class="form-group has-feedback">
+    <label class="control-label">Search:</label>
+    <input #input placeholder="Start typing..." id="search" class="form-control">
+    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+    
+</div>
+
 <table class='table' *ngIf="albums">
     <thead>
         <tr>
@@ -9,7 +16,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let album of albums">
+        <!--<tr *ngFor="let album of albums">
+            <td [routerLinkActive]="['link-active']">
+                <a [routerLink]="['/albumlist', album.albumID]">{{ album.title }} </a>
+            </td>
+            <td>{{album.artist.name}}</td>
+            <td>{{album.genre.name}}</td>
+        </tr>-->
+        <tr *ngFor="let album of albums | searchPipe: input.value">
             <td [routerLinkActive]="['link-active']">
                 <a [routerLink]="['/albumlist', album.albumID]">{{ album.title }} </a>
             </td>
@@ -18,3 +32,4 @@
         </tr>
     </tbody>
 </table>
+<div class="btn btn-info" [routerLinkActive]="['link-active']" [routerLink]="['/addalbum']">Add Album</div>

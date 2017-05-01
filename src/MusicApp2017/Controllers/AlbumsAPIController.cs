@@ -38,8 +38,7 @@ namespace MusicApp2017.Controllers
                 return BadRequest(ModelState);
             }
 
-            var album = await _context.Albums.SingleOrDefaultAsync(m => m.AlbumID == id);
-
+            var album = await _context.Albums.Include(a => a.Artist).Include(a => a.Genre).SingleOrDefaultAsync(m => m.AlbumID == id);
             if (album == null)
             {
                 return NotFound();

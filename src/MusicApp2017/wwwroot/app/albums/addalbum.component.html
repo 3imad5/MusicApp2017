@@ -1,0 +1,28 @@
+﻿<h2>Add an Album</h2>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="title">Title</label>
+            <div class="col-md-10">
+                <input type="text" id="title" class="form-control"
+                       [(ngModel)]="model.title" name="title" />
+            </div>
+            <label class="control-label col-md-2" for="artist">Artist</label>
+            <div class="col-md-10">
+                <input type="text" id="artist" class="form-control"
+                       [(ngModel)]="model.artist" name="artist" />
+            </div>
+            <label class="control-label col-md-2" for="genre">Genre</label>
+            <div class="col-md-10">
+                <input type="text" id="genre" class="form-control"
+                       [(ngModel)]="model.genre" name="genre" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+        </div>
+    </div>
+</form>

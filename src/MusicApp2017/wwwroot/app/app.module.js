@@ -14,6 +14,8 @@ var app_component_1 = require("./app.component");
 var nav_component_1 = require("./nav/nav.component");
 var albumlist_component_1 = require("./albums/albumlist.component");
 var home_component_1 = require("./home/home.component");
+var album_component_1 = require("./albums/album.component");
+var addalbum_component_1 = require("./albums/addalbum.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +26,8 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, http_1.JsonpModule, forms_1.FormsModule, router_1.RouterModule.forRoot([
                 { path: '', redirectTo: 'index', pathMatch: 'full' },
                 { path: 'albumlist', component: albumlist_component_1.AlbumListComponent },
-                { path: 'albumlist/:id', component: albumlist_component_1.AlbumListComponent },
+                { path: 'albumlist/:id', component: album_component_1.AlbumComponent },
+                { path: 'addalbum', component: addalbum_component_1.AddAlbumComponent },
                 { path: 'index', component: home_component_1.HomeComponent },
                 { path: '**', redirectTo: 'index' }
             ])],
@@ -32,7 +35,10 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             nav_component_1.NavComponent,
             albumlist_component_1.AlbumListComponent,
-            home_component_1.HomeComponent
+            album_component_1.AlbumComponent,
+            addalbum_component_1.AddAlbumComponent,
+            home_component_1.HomeComponent,
+            albumlist_component_1.SearchPipe
         ],
         bootstrap: [app_component_1.AppComponent],
     })
