@@ -21,9 +21,9 @@
     <Content Include="wwwroot\app\artists\artist.component.ts" />
     <Content Include="wwwroot\app\artists\artistlist.component.html" />
     <Content Include="wwwroot\app\artists\artistlist.component.ts" />
-    <Content Include="wwwroot\app\genres\genre.component.ts" />
     <Content Include="wwwroot\app\genres\genrelist.component.html" />
     <Content Include="wwwroot\app\genres\genrelist.component.ts" />
+    <Content Include="wwwroot\app\home\home.component.css" />
     <Content Include="wwwroot\app\home\home.component.html" />
     <Content Include="wwwroot\app\home\home.component.js" />
     <Content Include="wwwroot\app\home\home.component.js.map" />

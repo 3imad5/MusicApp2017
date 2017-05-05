@@ -1,0 +1,50 @@
+﻿.panel-info .panel-heading {
+    background-color: #ffc107;
+}
+
+.panel-success .panel-heading {
+    background-color: #4caf50;
+}
+
+.panel-heading {
+    font-size: 20px;
+    color: white;
+}
+
+.panel-success .panel-body, .panel-info .panel-body, .panel-primary .panel-body {
+    background-color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+    line-height: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.panel-success:hover, .panel-info:hover, .panel-primary:hover {
+    cursor: pointer;
+}
+
+.panel-heading:hover {
+    font-weight: 600;
+}
+
+.panel-success .panel-body {
+    color: #4caf50;
+}
+
+.panel-info .panel-body {
+    color: #ffc107;
+}
+
+.panel-primary .panel-body {
+    color: #337ab7;
+}
+
+.panel-heading:hover > .panel-body {
+    visibility: visible;
+    opacity: 1;
+    padding: 15px 15px;
+    line-height: 50%;
+}
